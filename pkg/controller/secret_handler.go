@@ -45,7 +45,7 @@ func handleSecretOp(manager kube.SecretClaimManager, claims cache.Store, obj int
 		return
 	}
 	log.Printf("secret-handler: %s: requesting secret create/update (force=false)", key)
-	if err := manager.CreateOrUpdateSecret(claim, false); err != nil {
+	if err := manager.CreateOrUpdateSecret(claim, true); err != nil {
 		log.Printf("error: failed to create/update secret %s: %s", key, err.Error())
 	}
 }
